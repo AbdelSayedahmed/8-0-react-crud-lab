@@ -3,7 +3,14 @@ const URL = process.env.REACT_APP_API_BASE_URL;
 
 // Create
 export function createShow(show) {
-  return;
+  const options = {
+    method: "POST",
+    body: JSON.stringify(show),
+    headers: { "Content-Type": "application/json" },
+  };
+  return fetch(`${URL}/shows/`, options).then((response) => {
+    return response.json();
+  });
 }
 
 // Delete
@@ -24,7 +31,14 @@ export function getOneShow(id) {
 
 // Update
 export function updateShow(id, show) {
-  return;
+  const options = {
+    method: "PUT",
+    body: JSON.stringify(show),
+    headers: { "Content-Type": "application/json" },
+  };
+  return fetch(`${URL}/shows/${id}`, options).then((response) => {
+    return response.json();
+  });
 }
 
 // Movies
